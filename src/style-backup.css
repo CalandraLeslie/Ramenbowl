@@ -1,0 +1,181 @@
+/* Japanese Ramen House Styling */
+:root {
+  /* Authentic Japanese Color Palette - Yellow, Red, Black, White */
+  --primary-red: #DC143C;
+  --primary-black: #000000;
+  --pure-white: #FFFFFF;
+  --japanese-yellow: #FFD700;
+  --warm-yellow: #FFF8DC;
+  --dark-red: #8B0000;
+  --cream-white: #FFFEF0;
+  --charcoal: #333333;
+  
+  /* Secondary Colors */
+  --accent-gold: #B8860B;
+  --light-gray: #F5F5F5;
+  --medium-gray: #666666;
+  
+  /* Typography */
+  --font-jp: 'Noto Sans JP', 'Zen Maru Gothic', sans-serif;
+  --font-en: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  
+  /* Spacing - More compact */
+  --section-padding: 2rem 0;
+  --container-padding: 0 1rem;
+  
+  /* Shadows */
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  --text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Account for fixed navbar height */
+}
+
+body {
+  font-family: var(--font-jp);
+  line-height: 1.6;
+  color: var(--primary-black);
+  background-color: var(--cream-white);
+  overflow-x: hidden;
+}
+
+/* General section styling for fixed header */
+section {
+  scroll-margin-top: 100px; /* Additional scroll margin for better positioning */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--container-padding);
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--primary-black);
+  z-index: 1000;
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+  border-bottom: 3px solid var(--japanese-yellow);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-jp {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  line-height: 1;
+}
+
+.logo-en {
+  font-size: 0.9rem;
+  color: var(--japanese-yellow);
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-menu a {
+  color: var(--pure-white);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: var(--japanese-yellow);
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--japanese-yellow);
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, var(--primary-black) 0%, var(--charcoal) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 100px; /* Add space for fixed navbar */
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--primary-red);
+  color: var(--pure-white);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: var(--card-shadow);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background: var(--dark-red);
+  transform: translateY(-2px);
+}
