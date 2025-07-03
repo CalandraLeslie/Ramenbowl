@@ -12,6 +12,11 @@ function createRamenHouseApp() {
           <span class="logo-jp">らーめん丼</span>
           <span class="logo-en">Ramen Bowl</span>
         </div>
+        <button class="mobile-menu-toggle" aria-label="メニューを開く">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
         <ul class="nav-menu">
           <li><a href="#home">ホーム</a></li>
           <li><a href="#menu">メニュー</a></li>
@@ -407,3 +412,43 @@ if (scrollToTopBtn) {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   })
 }
+
+// Mobile menu functionality
+function initMobileMenu() {
+  const mobileMenuToggle = document.querySelector('.mobile-menu-toggle')
+  const navMenu = document.querySelector('.nav-menu')
+  const navLinks = document.querySelectorAll('.nav-menu a')
+
+  console.log('Mobile menu elements:', { mobileMenuToggle, navMenu, navLinks })
+
+  if (mobileMenuToggle && navMenu) {
+    // Toggle mobile menu
+    mobileMenuToggle.addEventListener('click', () => {
+      console.log('Mobile menu toggle clicked')
+      mobileMenuToggle.classList.toggle('active')
+      navMenu.classList.toggle('active')
+    })
+
+    // Close mobile menu when clicking on a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuToggle.classList.remove('active')
+        navMenu.classList.remove('active')
+      })
+    })
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenuToggle.contains(e.target as Node) && 
+          !navMenu.contains(e.target as Node)) {
+        mobileMenuToggle.classList.remove('active')
+        navMenu.classList.remove('active')
+      }
+    })
+  } else {
+    console.error('Mobile menu elements not found!')
+  }
+}
+
+// Initialize mobile menu
+initMobileMenu()
