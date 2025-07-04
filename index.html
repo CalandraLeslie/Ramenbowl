@@ -1,16 +1,51 @@
 <!doctype html>
+<!--
+  Ramen Bowl - Authentic Japanese Ramen Restaurant Website
+  
+  This is the main HTML entry point for the Ramen Bowl restaurant website.
+  It sets up the basic document structure, meta information, and includes
+  necessary fonts and scripts for the single-page application.
+  
+  Features:
+  - Japanese language support (lang="ja")
+  - Responsive viewport configuration
+  - Google Fonts integration for Japanese typography
+  - Vite development server integration
+  
+  @author Ramen Bowl Development Team
+  @version 1.0.0
+  @created 2025
+-->
 <html lang="ja">
   <head>
+    <!-- Character encoding for proper Japanese text display -->
     <meta charset="UTF-8" />
+    
+    <!-- Vite icon - can be replaced with restaurant favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Responsive viewport configuration for mobile-first design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Page title with Japanese and English text for SEO -->
     <title>らーめん丼 - Ramen Bowl | Authentic Japanese Ramen House</title>
+    
+    <!-- Google Fonts preconnect for performance optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Japanese typography fonts from Google Fonts -->
+    <!-- Noto Sans JP: Modern, clean Japanese font -->
+    <!-- Zen Maru Gothic: Traditional, rounded Japanese font for decorative elements -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <!-- Main application container where all content will be rendered -->
+    <!-- The TypeScript application will populate this div with restaurant content -->
     <div id="app"></div>
+    
+    <!-- Main TypeScript module entry point -->
+    <!-- Vite will process this and inject the compiled JavaScript -->
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
